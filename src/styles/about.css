@@ -1,0 +1,262 @@
+@property --angle {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0deg;
+}
+
+@property --z {
+  syntax: '<integer>';
+  inherits: true;
+  initial-value: 0;
+}
+
+.about {
+  position: relative;
+  padding-block-start: 192px !important;
+  padding-block-end: 32px !important;
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  height: 36px;
+  width: 100%;
+  background-color: transparent;
+  backdrop-filter: blur(6px);
+}
+
+.about__container {
+  display: grid;
+  grid-template-areas:
+    "image title"
+    "image info"
+    ". eye";
+  grid-template-columns: max-content 1fr;
+  grid-template-rows: max-content 1fr 300px;
+  justify-content: center;
+  column-gap: 4rem;
+
+  @media screen and (width <=1024px) {
+    column-gap: 3rem;
+  }
+
+  @media screen and (width <=768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+}
+
+.about__title {
+  grid-area: title;
+  margin: 0;
+  text-wrap: nowrap;
+
+  @media screen and (768px <=width <=992px) {
+    font-size: max(48px, 1rem + 6vw);
+  }
+}
+
+.about__image {
+  position: relative;
+  grid-area: image;
+  justify-self: end;
+  align-self: center;
+  border-radius: var(--radius-m);
+
+  transition: transform 0.1s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+
+  &::before {
+    --rotation: 120deg;
+    --x-amplitude: 60px;
+    --y-amplitude: 10px;
+    --x: calc(cos(var(--angle)) * var(--x-amplitude));
+    --y: calc(sin(var(--angle)) * var(--y-amplitude));
+
+    content: "";
+    position: absolute;
+
+    width: 8%;
+    aspect-ratio: 1;
+
+    background-color: var(--color-turquoise);
+    box-shadow: var(--shadow);
+    border-radius: 50%;
+
+    transform:
+      rotate(var(--rotation)) translate(var(--x), var(--y)) rotate(calc(var(--rotation) * -1));
+    animation: spin 6s linear infinite;
+    z-index: calc(var(--z));
+    /* calc() для Safari */
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: -12%;
+    bottom: -12%;
+    width: 38%;
+    aspect-ratio: 1;
+    background-color: var(--color-purple);
+    border-radius: 50%;
+
+    z-index: -1;
+
+    transition: transform 0.2s ease;
+    transform: translateZ(0px) perspective(100px);
+  }
+
+  &:hover::after {
+    transform: translateZ(-7px);
+  }
+
+  img {
+    min-width: 220px;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: var(--radius-m);
+    box-shadow: var(--shadow);
+  }
+}
+
+.about__info {
+  grid-area: info;
+  max-width: 60ch;
+  font-size: 1.2rem;
+
+  @media screen and (width <=768px) {
+    max-width: initial;
+  }
+
+  i {
+    color: var(--color-cream);
+  }
+}
+
+.about__eye {
+  grid-area: eye;
+
+  @media screen and (width <=768px) {
+    margin-right: -100px;
+  }
+}
+
+.eye {
+  height: 240px;
+  width: 240px;
+  display: inline-block;
+  margin-top: auto;
+  margin-left: auto;
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+}
+
+.eye__body {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: relative;
+  background: radial-gradient(circle at 50% 40%, #fcfcfc, #f1f2f3 66%, #59565a 100%);
+  border-radius: 50%;
+  box-shadow: inset -6px -12px 12px rgb(77 77 77 / 0.2);
+}
+
+.eye__body:after {
+  content: '';
+  position: absolute;
+  top: 11%;
+  left: 12%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%,
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.6) 12%,
+      rgba(255, 255, 255, 0) 22%);
+  transform: translate(-80px) translateY(-90px) skewX(-20deg);
+}
+
+.eye__iris {
+  width: 42%;
+  height: 42%;
+  margin: 30%;
+  border-radius: 100%;
+  position: absolute;
+  background: radial-gradient(circle at 50% 50%, #34566f 0%, #6fbfff 30%, #34566f 100%);
+  will-change: transform;
+  transform: rotateX(25deg) rotateY(-38deg) translateZ(98px);
+  /* animation: eyeMove 6s ease-out infinite; */
+
+}
+
+.eye__iris:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 39.5%;
+  height: 39.5%;
+  border-radius: 100%;
+  top: 31.25%;
+  left: 31.25%;
+  background: #000;
+}
+
+.eye__iris:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 32.5%;
+  height: 32.5%;
+  border-radius: 100%;
+  top: 18.75%;
+  left: 18.75%;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+    --z: -1;
+  }
+
+  25% {
+    scale: 0.85;
+  }
+
+  50% {
+    scale: 1;
+  }
+
+  75% {
+    scale: 1.15;
+  }
+
+  to {
+    --angle: 360deg;
+    --z: 0;
+  }
+}
+/*
+@keyframes eyeMove {
+
+  0%,
+  25%,
+  44%,
+  66%,
+  100% {
+    transform: none;
+  }
+
+  20% {
+    transform: translateX(-68px) translateY(30px) skewX(15deg) skewY(-10deg) scale(0.95);
+  }
+
+  50%,
+  60% {
+    transform: translateX(68px) translateY(-40px) skewX(5deg) skewY(2deg) scale(0.95);
+  }
+} */

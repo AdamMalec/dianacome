@@ -1,0 +1,97 @@
+section.together {
+  padding-block-start: 112px;
+
+  @media screen and (width <= 1280px) {
+		padding-block: 80px;
+	}
+
+	@media screen and (width <= 1024px) {
+		padding-block: 64px;
+	}
+
+	@media screen and (width <=768px) {
+    padding-block: 48px;
+  }
+}
+
+.together__title {
+  text-align: left;
+
+  @media screen and (width <= 1024px) {
+    text-align: center;
+  }
+}
+.together__steps {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0;
+  margin-left: auto;
+  padding: 0;
+  list-style: none;
+
+  @media screen and (width <= 1024px) {
+    justify-content: space-between;
+    gap: 4vw;
+  }
+
+  @media screen and (width <= 576px) {
+    flex-direction: column;
+    gap: 6rem;
+  }
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  height: 25rem;
+  opacity: 0;
+
+  @media screen and (width <= 576px) {
+    height: auto;
+  }
+}
+
+.step:nth-child(1) {
+  justify-content: flex-start;
+  animation-delay: 0.2s;
+  animation-duration: 0.8s;
+}
+.step:nth-child(2) {
+  justify-content: center;
+  animation-delay: 0.5s;
+  animation-duration: 0.8s;
+}
+.step:nth-child(3) {
+  justify-content: flex-end;
+  animation-delay: 0.8s;
+  animation-duration: 0.8s;
+}
+
+.step span:nth-of-type(1) {
+  font-size: clamp(32px, 1rem + 6vw, 96px);
+  line-height: 0.8;
+
+  @media screen and (width <= 576px) {
+    font-size: 6rem;
+  }
+}
+.step span:nth-of-type(2) {
+  font-size: clamp(24px, 1rem + 3vw, 48px);
+  line-height: 0.8;
+
+  @media screen and (width <= 576px) {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (width <= 576px) {
+  .step svg {
+    margin-inline: auto;
+  }
+
+  .step span:nth-of-type(1),
+  .step span:nth-of-type(2) {
+    text-align: center;
+  }
+}

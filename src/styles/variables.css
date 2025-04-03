@@ -1,0 +1,16 @@
+:root {
+  --color-black: #060606;
+  --color-gray: #3e3e3e;
+  --color-white: #F8F8F8;
+  --color-cream: #ECD0C0;
+  --color-purple: #B52DBF;
+  --color-blue: #277BDB;
+  --color-turquoise: #19E79B;
+  --color-accent: #19e734;
+
+  --radius-l: 16px;
+  --radius-m: 12px;
+  --radius-s: 8px;
+
+  --shadow: 4px 4px 12px 0 rgba(0, 0, 0, 0.34);
+}

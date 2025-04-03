@@ -1,0 +1,161 @@
+.story__container {
+  width: 70%;
+
+  @media screen and (width <=1280px) {
+    width: 85%;
+  }
+}
+
+.story__wrapper {
+  display: flex;
+  gap: 6vw;
+
+  @media screen and (width <=768px) {
+    position: relative;
+    justify-content: center;
+  }
+}
+
+.story__images {
+  position: relative;
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+
+  &::before {
+    top: -56px;
+    left: -72px;
+    width: 60px;
+    background-color: var(--color-white);
+  }
+
+  &::after {
+    top: 18vw;
+    right: -20vw;
+    width: 110px;
+    background-color: var(--color-blue);
+  }
+
+  @media screen and (width <=768px) {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+  }
+}
+
+.story__images li {
+  position: relative;
+  width: fit-content;
+  max-width: 360px;
+  opacity: 0;
+
+  @media screen and (width <=768px) {
+    width: auto;
+    max-width: initial;
+  }
+}
+
+.story__images li:nth-child(2) {
+  position: absolute;
+  inset: 34% -7vw 0 7vw;
+  z-index: 2;
+}
+
+.story__images li:nth-child(3) {
+  margin-top: 12vw;
+  z-index: 3;
+}
+
+@media screen and (width <=768px) {
+  .story__images li:nth-child(2),
+  .story__images li:nth-child(3) {
+    display: none;
+  }
+}
+
+
+.story__images li::before,
+.story__images li::after {
+  content: "";
+  position: absolute;
+  top: -24px;
+  display: block;
+  width: 86px;
+  aspect-ratio: 1;
+  background-image: url("./../img/scotch-tape.png");
+  background-repeat: no-repeat;
+  z-index: 4;
+}
+
+.story__images li::before {
+  left: -24px;
+  transform: rotateX(180deg);
+}
+
+.story__images li::after {
+  right: -24px;
+}
+
+.story__images li img {
+  filter: grayscale(1);
+  transition: filter 0.2s ease-in;
+
+  @media screen and (width <=768px) {
+    width: 100%;
+    filter: brightness(0.3);
+  }
+}
+
+
+.story__images li:hover img {
+  filter: grayscale(0);
+}
+
+.story__info {
+  width: 50%;
+  margin-top: auto;
+  padding-left: max(28px, 4vw);
+  animation-delay: 0.2s;
+  animation-duration: 0.6s;
+  opacity: 0;
+
+  @media screen and (width <=768px) {
+    width: 100%;
+    padding: 10vw max(28px, 6vw) 38vw;
+  }
+
+  @media screen and (width <= 428px) {
+    padding-bottom: 32px;
+  }
+}
+
+.story__info p {
+  margin-bottom: 0;
+  font-size: 2.5rem;
+  line-height: 1.15;
+
+  @media screen and (width <= 1024px) {
+    font-size: 2rem;
+  }
+
+  @media screen and (width <= 768px) {
+    font-size: calc(1rem + 3.6vw);
+  }
+
+  @media screen and (width <= 576px) {
+    font-size: calc(1rem + 3vw);
+  }
+}
+
+.story__info b {
+  color: var(--color-cream);
+}

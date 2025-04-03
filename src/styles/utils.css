@@ -1,0 +1,64 @@
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1298px;
+  padding: 0 60px;
+}
+
+@media (width <= 1024px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+
+@media screen and (width <= 768px) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+@media screen and (width <= 576px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+
+/* ***** */
+/* .container {
+  --max-width: 1298px;
+  --padding: 3rem;
+
+  width: min(var(--max-width), 100% - var(--padding)) ;
+  margin-inline: auto;
+}
+
+@media screen and (width <= 1024px) {
+  .container {
+    --padding: 2.2rem;
+  }
+}
+
+@media screen and (width <= 768px) {
+  .container {
+    --padding: 1.4rem;
+  }
+}
+
+@media screen and (width <= 576px) {
+  .container {
+    --padding: 1rem;
+  } */
+/* } */
+
+.visually-hidden {
+  position: absolute;
+  margin: -1px;
+  clip-path: inset(50%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap
+}

@@ -1,6 +1,8 @@
-/* .services {
+.services {
+	padding-block-end: 0 !important;
+	overflow-y: hidden;
 }
-.services__container {
+/* .services__container {
 } */
 
 @property --gradient-angle {
@@ -27,6 +29,7 @@
 		aspect-ratio: 1;
     background-color: var(--color-purple);
     border-radius: 50%;
+		box-shadow: inset -5px -9px 12px rgb(77 77 77 / 0.3);
 		opacity: 0.85;
 
 		@media screen and (width <=768px) {
@@ -256,6 +259,7 @@
 
 .showcase {
 	width: 50vmin;
+	min-width: 240px;
 	aspect-ratio: 1;
 	border: 1px dashed rgba(255, 255, 255, 0.4);
 	position: relative;

@@ -1,0 +1,122 @@
+/* https://alistairshepherd.uk/writing/parallax-svg-landscape-1/ */
+/* https://codepen.io/HejChristian/pen/ZYEqoXd?editors=0010 */
+
+.parallax {
+  padding-block-start: 50vh;
+}
+
+.parallax__container {
+  --multiplier: 2.2;
+
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2.54 / 1;
+
+  *:not([class]) {
+    position: absolute;
+    inset: 0;
+
+    transition: transform 0.12s ease-out;
+    will-change: transform;
+    transform: translate3d(
+      0,
+      calc(
+        (var(--scrollPos, 0) - 0.5) * 2 * var(--offset) * var(--multiplier)
+      ),
+      0
+    );
+  }
+
+  picture {
+    pointer-events: none;
+  }
+}
+
+.parallax__container a {
+  --outline-offset: 4px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: flex-start;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 1rem  2rem;
+
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: var(--color-black);
+
+  background-color: var(--color-accent);
+  border-radius: 4px;
+  border: none;
+  box-shadow: 0px 6px 16px 2px rgba(25, 215, 51, 0.3);
+  cursor: pointer;
+
+  &::after {
+    display: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    outline-color: var(--color-accent);
+    outline-offset: var(--outline-offset);
+    outline-style: solid;
+    outline-width: 4px;
+    animation: outline-bounce .4s;
+  }
+
+  @media screen and (width <= 1024px) {
+    top: -8vh !important;
+    height: 3.6rem;
+    padding: 0.8rem 1.6rem;
+    font-size: 1.1rem;
+  }
+
+  @media screen and (width <= 768px) {
+    top: -6vh !important;
+    height: 3.2rem;
+    padding: 0.6rem 1.4rem;
+    font-size: 1rem;
+  }
+
+  @media screen and (width <= 576px) {
+    top: -5vh !important;
+  }
+}
+
+.parallax__container > *:nth-child(1) {
+  --offset:7vh;
+  filter: blur(0.5px);
+}
+.parallax__container > *:nth-child(2) {
+  --offset:6vh;
+  filter: blur(0.3px);
+}
+.parallax__container > *:nth-child(3) {
+  --offset:-3vh;
+}
+.parallax__container > *:nth-child(4) {
+  --offset:4vh;
+}
+
+@media screen and (width <= 768px) {
+  .parallax__container > *:nth-child(1) {--offset:5.5vh;}
+  .parallax__container > *:nth-child(2) {--offset:4.5vh;}
+  .parallax__container > *:nth-child(3) {--offset:-1.5vh;}
+  .parallax__container > *:nth-child(4) {--offset:2vh;}
+}
+
+@media screen and (width <= 576px) {
+  .parallax__container > *:nth-child(1) {--offset:4vh;}
+  .parallax__container > *:nth-child(2) {--offset:3vh;}
+  .parallax__container > *:nth-child(3) {--offset:-1vh;}
+  .parallax__container > *:nth-child(4) {--offset:1vh;}
+}
+
+@keyframes outline-bounce {
+  0% { outline-offset: var(--outline-offset) }
+  50% { outline-offset: calc(var(--outline-offset) * 2) }
+  100% { outline-offset: var(--outline-offset) }
+}

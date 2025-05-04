@@ -43,8 +43,7 @@
     top: 18vw;
     right: -20vw;
     width: 110px;
-    background-color: var(--color-blue);
-    box-shadow: inset -5px -10px 12px rgb(77 77 77 / 0.3);
+    background-image: radial-gradient(circle at 25% 32%, #6699f3 0, #277bdb 50%, #005ec3 100%);
   }
 
   @media screen and (width <=768px) {

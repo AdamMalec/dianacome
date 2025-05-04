@@ -2,7 +2,7 @@
 /* https://codepen.io/HejChristian/pen/ZYEqoXd?editors=0010 */
 
 .parallax {
-  padding-block-start: 50vh;
+  padding-block-start: min(50vh, 16rem) ;
 }
 
 .parallax__container {
@@ -87,32 +87,25 @@
 }
 
 .parallax__container > *:nth-child(1) {
-  --offset:7vh;
+  --offset:5vh;
   filter: blur(0.5px);
 }
 .parallax__container > *:nth-child(2) {
-  --offset:6vh;
+  --offset:4vh;
   filter: blur(0.3px);
 }
 .parallax__container > *:nth-child(3) {
-  --offset:-3vh;
+  --offset:-2vh;
 }
 .parallax__container > *:nth-child(4) {
-  --offset:4vh;
+  --offset:2vh;
 }
 
 @media screen and (width <= 768px) {
-  .parallax__container > *:nth-child(1) {--offset:5.5vh;}
-  .parallax__container > *:nth-child(2) {--offset:4.5vh;}
-  .parallax__container > *:nth-child(3) {--offset:-1.5vh;}
-  .parallax__container > *:nth-child(4) {--offset:2vh;}
-}
-
-@media screen and (width <= 576px) {
-  .parallax__container > *:nth-child(1) {--offset:4vh;}
-  .parallax__container > *:nth-child(2) {--offset:3vh;}
-  .parallax__container > *:nth-child(3) {--offset:-1vh;}
-  .parallax__container > *:nth-child(4) {--offset:1vh;}
+  .parallax__container > *:nth-child(1) {--offset:3vmin;}
+  .parallax__container > *:nth-child(2) {--offset:2vmin;}
+  .parallax__container > *:nth-child(3) {--offset:-1.5vmin;}
+  .parallax__container > *:nth-child(4) {--offset:1vmin;}
 }
 
 @keyframes outline-bounce {

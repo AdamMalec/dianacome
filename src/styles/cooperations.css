@@ -26,6 +26,7 @@
 
 .marquee__content li {
   width: 118px;
+  aspect-ratio: 1;
   border: 1px solid var(--color-white);
   background-color: var(--color-white);
   border-radius: 50%;
@@ -40,7 +41,6 @@
     padding-inline: 6vw;
   }
 }
-
 
 @keyframes scroll {
   from {

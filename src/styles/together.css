@@ -21,6 +21,7 @@ section.together {
     text-align: center;
   }
 }
+
 .together__steps {
   display: flex;
   justify-content: space-evenly;
@@ -59,12 +60,12 @@ section.together {
 }
 .step:nth-child(2) {
   justify-content: center;
-  animation-delay: 0.5s;
+  animation-delay: 0.45s;
   animation-duration: 0.8s;
 }
 .step:nth-child(3) {
   justify-content: flex-end;
-  animation-delay: 0.8s;
+  animation-delay: 0.7s;
   animation-duration: 0.8s;
 }
 

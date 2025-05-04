@@ -1,14 +1,11 @@
-.services {
-	padding-block-end: 0 !important;
-	overflow-y: hidden;
-}
-/* .services__container {
-} */
-
 @property --gradient-angle {
 	syntax: "<angle>";
 	initial-value: 0deg;
 	inherits: false;
+}
+.services {
+	padding-block-end: 0 !important;
+	overflow-y: hidden;
 }
 
 .services__list {
@@ -104,7 +101,6 @@
 	}
 }
 
-/* .service__image::before, */
 .service__image::after {
 	content: "";
 	position: absolute;
@@ -325,8 +321,6 @@
 	background-position: center;
 	background-size: cover;
 	animation: spin-liquid 12s ease-in-out infinite alternate-reverse;
-	/* opacity: 1; */
-	/* z-index: 2; */
 }
 
 @keyframes spin-angle {

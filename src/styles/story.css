@@ -36,6 +36,7 @@
     left: -72px;
     width: 60px;
     background-color: var(--color-white);
+    box-shadow: inset -3px -6px 11px rgb(77 77 77 / 0.3);
   }
 
   &::after {
@@ -43,6 +44,7 @@
     right: -20vw;
     width: 110px;
     background-color: var(--color-blue);
+    box-shadow: inset -5px -10px 12px rgb(77 77 77 / 0.3);
   }
 
   @media screen and (width <=768px) {

@@ -52,15 +52,13 @@ textarea {
 
   &:focus {
     outline: 2px solid var(--color-purple);
-    /* border-width: 2px; */
-    /* box-shadow: inset 0px -1px 0px 0px var(--color-purple); */
   }
 }
 
 button[type="submit"] {
+  min-width: -webkit-fill-available;
   min-width: fit-content;
   padding: 0;
-  font: inherit;
   color: inherit;
   background: none;
   border: none;

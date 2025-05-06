@@ -95,6 +95,10 @@
 	display: none;
 }
 
+.header__logo {
+	min-width: 28px;
+}
+
 .header__logo svg {
 	width: clamp(4rem, 8.6vw, 7.5rem);
 	height: clamp(4rem, 8.6vw, 7.5rem);

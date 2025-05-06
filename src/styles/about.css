@@ -12,8 +12,11 @@
 
 .about {
   position: relative;
-  padding-block-start: 192px !important;
-  padding-block-end: 32px !important;
+
+  @media screen and (width > 768px) {
+    padding-block-start: 192px !important;
+    padding-block-end: 32px !important;
+  }
 }
 
 .about::before {
